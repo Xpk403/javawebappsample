@@ -32,7 +32,8 @@ node {
       def pubProfilesJson = sh script: "az webapp deployment list-publishing-profiles -g jenkins-get-started-rg -n xpk403", returnStdout: true
       def ftpProfile = getFtpPublishProfile pubProfilesJson
       // upload package
-     sh "curl -T target/calculator-1.0.war ftps://waws-prod-blu-229.ftp.azurewebsites.windows.net/site/wwwroot/ROOT.war -u xpk403\\\$xpk403:pvppYAToxi62lcvStHD4uD9e6bYQXMJ1hClSnxtWgpmmYFlDoNtzYqoG82G7"
+    sh "curl -T target/calculator-1.0.war 'ftps://waws-prod-blu-229.ftp.azurewebsites.windows.net/site/wwwroot/ROOT.war' -u 'xpk403\\\$xpk403:pvppYAToxi62lcvStHD4uD9e6bYQXMJ1hClSnxtWgpmmYFlDoNtzYqoG82G7'"
+
 
       // log out
       sh 'az logout'
